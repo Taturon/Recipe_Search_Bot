@@ -17,7 +17,6 @@ function getRakutenResult() {
 
 	// リクエストURL を作成
 	$url = $baseurl . '?' . $canonical_string;
-	var_dump($canonical_string);
 	// XMLをオブジェクトに代入
 	$rakuten_json = json_decode(@file_get_contents($url, true));
 	$items = array();
