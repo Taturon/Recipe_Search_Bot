@@ -9,7 +9,6 @@ function getRakutenResult() {
 	$params['format'] = 'json';
 
 	$canonical_string = '';
-	var_dump($params);
 	foreach($params as $k => $v) {
 		    $canonical_string .= '&' . $k . '=' . $v;
 	}
@@ -19,7 +18,6 @@ function getRakutenResult() {
 	// リクエストURL を作成
 	$url = $baseurl . '?' . $canonical_string;
 	var_dump($canonical_string);
-	var_dump($url);
 	// XMLをオブジェクトに代入
 	$rakuten_json = json_decode(@file_get_contents($url, true));
 	$items = array();
