@@ -19,7 +19,7 @@ foreach ($client->parseEvents() as $event) {
 		$message = $event['message'];
 		switch ($message['type']) {
 		case 'text':
-			require_once('recipe_extract.php');
+			require_once('recipeExtract.php');
 			$client->replyMessage([
 				'replyToken' => $event['replyToken'],
 				'messages' => [
