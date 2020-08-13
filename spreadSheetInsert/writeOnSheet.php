@@ -63,7 +63,7 @@ foreach ($recipes as $recipe) {
     'シート1', //シート名
     $body, //データ
     ["valueInputOption" => 'USER_ENTERED']
-);
-
+	);
+}
 //書き込んだ処理結果を確認
 var_export($response->getUpdates());
