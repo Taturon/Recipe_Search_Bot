@@ -1,4 +1,4 @@
-##動作確認の手順
+## 動作確認の手順
 1. dbConnect.phpのDB名、ユーザー名、パスワードをデータを挿入したいDBのものに置き換える
 2. createRakutenRecipeTable.sqlを用いてDBに「rakuten_recipe」のテーブルを作成する
 3. LINE Developersのダッシュボードへアクセスし、
