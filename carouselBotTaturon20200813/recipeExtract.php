@@ -103,5 +103,5 @@ if (count($ids) > 13) {
 
 	// テンプレートオブジェクト及びカルーセルテンプレートの生成
 	$template = ['type' => 'carousel', 'columns' => $columns];
-	$reply['messages'][] = ['type' => 'template', 'altText' => 'すみません...', 'template' => $template];
+	$reply['messages'][0] = ['type' => 'template', 'altText' => 'すみません...', 'template' => $template];
 }
