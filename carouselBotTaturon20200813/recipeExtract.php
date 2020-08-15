@@ -10,12 +10,26 @@ $stmt->execute();
 $ids = $stmt->fetchAll();
 
 // 検索ヒット件数が多い場合の処理
-// ヒット件数が13件より多い場合(クイックリプライの上限)
+// ヒット件数が13件(クイックリプライの上限)より多い場合
 if (count($ids) > 13) {
 	$rep = count($ids) . "件ヒットしました！";
-	$rep .= "\n対応するレシピが多すぎます！";
-	$rep .= "\nもう少し具体的に\n教えて欲しいです！";
+	$rep .= "\n対応するレシピが多すぎます...";
+	$rep .= "\n下記より選択されるか、";
+	$rep .= "\nもう少し具体的に教えて下さい！";
 	$reply['messages'][0]['text'] = $rep;
+	shuffle($ids);
+	$examples = array_rand($ids, 13);
+	$ids = array_intersect_key($ids, $examples);
+	foreach ($ids as $id) {
+		$reply['messages'][0]['quickReply']['items'][] = [
+			'type' => 'action',
+			'action' => [
+				'type' => 'message',
+				'label' => $id['category_name'],
+				'text' => $id['category_name']
+			]
+		];
+	}
 
 // ヒット件数が1件より多い場合
 } elseif (count($ids) > 1) {
@@ -59,16 +73,28 @@ if (count($ids) > 13) {
 
 			// タイトルが40文字以上の場合はトリミング
 			if (mb_strlen($data['recipeTitle']) > 40) {
-				$title = mb_strimwidth($data['recipeTitle'], 0, 74, "...");
+				$str_t = str_replace(PHP_EOL, '', $data['recipeTitle']);
+				$str_t = preg_split('//u', $str_t, 0, PREG_SPLIT_NO_EMPTY);
+				$title = '';
+				for ($i = 0; $i < 37; $i++) {
+					    $title .= $str_t[$i];
+				}
+				$title .= '...';
 			} else {
-				$title = $data['recipeTitle'];
+				$title = str_replace(PHP_EOL, '', $data['recipeTitle']);
 			}
 
 			// 説明が60文字以上の場合はトリミング
 			if (mb_strlen($data['recipeDescription']) > 60) {
-				$description = mb_strimwidth($data['recipeDescription'], 0, 114, "...");
+				$str_d = str_replace(PHP_EOL, '', $data['recipeDescription']);
+				$str_d = preg_split('//u', $str_d, 0, PREG_SPLIT_NO_EMPTY);
+				$description = '';
+				for ($i = 0; $i < 57; $i++) {
+					    $description .= $str_d[$i];
+				}
+				$description .= '...';
 			} else {
-				$description = $data['recipeDescription'];
+				$description = str_replace(PHP_EOL, '', $data['recipeDescription']);
 			}
 
 			// カラムオブジェクトの生成
@@ -80,7 +106,7 @@ if (count($ids) > 13) {
 					[
 						'type' => 'uri',
 						'uri' => $data['recipeUrl'],
-						'label' => '詳しく見てみる!'
+						'label' => '詳細はこちら>>'
 					]
 				]
 			];
@@ -89,5 +115,5 @@ if (count($ids) > 13) {
 
 	// テンプレートオブジェクト及びカルーセルテンプレートの生成
 	$template = ['type' => 'carousel', 'columns' => $columns];
-	$reply['messages'][] = ['type' => 'template', 'altText' => 'すみません...', 'template' => $template];
+	$reply['messages'][0] = ['type' => 'template', 'altText' => 'すみません...', 'template' => $template];
 }
