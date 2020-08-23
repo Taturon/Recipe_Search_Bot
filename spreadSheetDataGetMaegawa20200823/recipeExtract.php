@@ -1,7 +1,7 @@
 <?php
 //色々試した結果、関数にしないとできませんでした
 function getData() {
-	require __DIR__. '/../vendor/autoload.php';
+	require __DIR__. '/vendor/autoload.php';
 
 	//ダウンロードしたファイル
 	$keyFile = __DIR__. "/credentials.json";//取得したサービスキーのパスを指定
