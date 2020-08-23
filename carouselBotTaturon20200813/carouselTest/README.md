@@ -1,6 +1,7 @@
 ### このディレクトリの詳細
 - カルーセル機能のみ抽出したファイル群です。
 - カルーセル機能のみをテストしたい場合に使用して下さい。
+- LINEBotTiny.phpが同一ディレクトリ内になかったので追加しました(2020/8/23 14:35)
 ---
 #### 参考記事
 - [LINE Developers ドキュメント Messaging API メッセージタイプ](https://developers.line.biz/ja/docs/messaging-api/message-types/)
