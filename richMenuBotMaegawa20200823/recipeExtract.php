@@ -1,13 +1,44 @@
 <?php
+//グーグルスプレッドシートのデータを関数化する
+function getData() {
+	require __DIR__. '/vendor/autoload.php';
 
-// 入力値を用いてDB検索し、idを配列に格納
-$search = '%' . $message['text'] . '%';
-require_once('dbConnect.php');
-$sql = "SELECT category_name, category_id FROM rakuten_recipe WHERE category_name LIKE ?";
-$stmt = $dbh->prepare($sql);
-$stmt->bindValue(1, $search, PDO::PARAM_STR);
-$stmt->execute();
-$ids = $stmt->fetchAll();
+	//ダウンロードしたファイル
+	$keyFile = __DIR__. "/linebot-4d3669a28a66.json";//取得したサービスキーのパスを指定
+
+	$client = new Google_Client();//Googleクライアントインスタンスを作成
+	$client->setScopes([//スコープを以下の内容でセット
+		\Google_Service_Sheets::SPREADSHEETS,
+		\Google_Service_Sheets::DRIVE,]);
+	$client->setAuthConfig($keyFile);//サービスキーをセット
+
+	$sheet = new Google_Service_Sheets($client);//シートを操作するインスタンス
+	$sheet_id = 'スプレッドシートID';//対象のスプレッドシートのIDを指定
+	$range = 'test!A1:B1575';//取得範囲を指定（dataシートのA1〜B8）
+	$response = $sheet->spreadsheets_values->get($sheet_id, $range);
+	$values = $response->getValues();//帰ってきたresponseから値を取得
+	return $values;
+}
+
+$values = getData();
+//返ってきた値を変数に格納
+//$message['text'] = '肉';
+$values = getData();
+//スプレッドシート内の値を検索するために最初にforeach
+foreach ($values as $value) {
+	$value['category_name'] = $value[0];
+	$value['category_id'] = $value[1];
+	unset ($value[0], $value[1]);
+	//あいまい検索を行いヒットした値を出力する
+	if (strpos($value['category_name'], $message['text']) !== false) {
+		$ids[] = $value;
+	}
+}
+
+//材料名がGSSになかった場合
+if ($ids == null) {
+	$reply['messages'][0]['text'] = '申し訳ありません。その操作には対応しておりません';
+}
 
 // 検索ヒット件数が多い場合の処理
 // ヒット件数が13件(クイックリプライの上限)より多い場合
