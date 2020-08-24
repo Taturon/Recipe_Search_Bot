@@ -1,0 +1,3 @@
+ ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+
