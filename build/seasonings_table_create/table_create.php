@@ -30,12 +30,12 @@ try {
 
 	// 変更の反映
 	$dbh->commit();
-	echo 'テーブル作成に成功しました' . PHP_EOL;
+	echo 'seasoningsテーブル作成に成功しました' . PHP_EOL;
 
 // トライ中にエラーが発生した場合
 } catch (Exception $e) {
 
 	// 変更の取り消し
 	$dbh->rollBack();
-	exit('テーブル作成に失敗しました' . PHP_EOL . $e->getMessage() . PHP_EOL);;
+	exit('seasoningsテーブル作成に失敗しました' . PHP_EOL . $e->getMessage() . PHP_EOL);;
 }
