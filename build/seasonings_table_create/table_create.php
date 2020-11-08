@@ -21,7 +21,7 @@ try {
 		`table_spoon` VARCHAR(5) NOT NULL,
 		`cup` VARCHAR(5) NOT NULL,
 		PRIMARY KEY(id)
-	)';
+	) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_bin';
 	$stmt = $dbh->query($sql);
 
 	// データの挿入
