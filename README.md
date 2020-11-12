@@ -1,6 +1,6 @@
-# レシピ検索ボットくん(v1.0)
-![トップ画像](lineDeRecipe/images/line_de_recipe.png)
-[友達追加はコチラ](https://line.me/R/ti/p/@146ueqln)
+# レシピ検索ボットくん v1.1
+![トップ画像](images/line_de_recipe.png)
+[友達追加はコチラ](https://line.me/R/ti/p/@774hxoph)
 
 ## コンセプト
 冷蔵庫の残り物の処理に困っていませんか？
