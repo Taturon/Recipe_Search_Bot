@@ -6,6 +6,12 @@ require_once('.env.php');
 $client = new LINEBotTiny(CHANNEL_ACCESS_TOKEN, CHANNEL_SECRET);
 foreach ($client->parseEvents() as $event) {
 	switch ($event['type']) {
+		case 'follow':
+			require_once('follow.php');
+			break;
+		case 'unfollow':
+			require_once('unfollow.php');
+			break;
 		case 'message':
 			$message = $event['message'];
 			switch ($message['type']) {
