@@ -16,9 +16,9 @@ try {
 	// テーブルの構築
 	$sql = 'CREATE TABLE `users` (
 		`id` int(11) NOT NULL AUTO_INCREMENT,
-		`category_name` varchar(40) UNIQUE NOT NULL,
-		`created_at` timestamp NULL DEFAULT NULL,
-		`updated_at` timestamp NULL DEFAULT NULL,
+		`line_id` varchar(40) UNIQUE NOT NULL,
+		`created_at` timestamp NOT NULL,
+		`updated_at` timestamp NOT NULL,
 		`deleted_at` timestamp NULL DEFAULT NULL,
 		PRIMARY KEY(id)
 	)';
