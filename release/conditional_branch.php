@@ -17,8 +17,8 @@ switch ($message['text']) {
 	case '単位換算':
 		require_once('calculate_text.php');
 		break;
-	case 'むらっしゅさんのお言葉':
-		require_once('murashu_bot.php');
+	case '検索履歴':
+		require_once('search_histories.php');
 		break;
 	default:
 		require_once('calculate.php');
