@@ -16,8 +16,8 @@
 	- Line Bot開発用SDK
 - webhook.php
 	- POSTリクエストを送るファイル
-- carousel_test.php
-	- 定型文のカルーセル2つを生成するファイル 
+- reply_test.php
+	- 5種類の返信機能が記述されたファイル
 
 ---
 
