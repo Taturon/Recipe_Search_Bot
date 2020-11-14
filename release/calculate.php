@@ -89,6 +89,8 @@ if (preg_match($reg_exp1, $message['text'])) {
 			}
 			$rep .= 'です!';
 			$reply['messages'][0]['text'] = $rep;
+			$word = $message['text'];
+			require_once('search_history_recording.php');
 
 		// DB検索に引っかからなかった場合
 		} else {
@@ -97,6 +99,9 @@ if (preg_match($reg_exp1, $message['text'])) {
 			$rep .= 'データベースに' . PHP_EOL;
 			$rep .= '登録されておりません';
 			$reply['messages'][0]['text'] = $rep;
+			date_default_timezone_set('Asia/Tokyo');
+			$error = date('Y-m-d H:i:s ') . 'DBにない調味料が検索されました: "' . $str . '"' . PHP_EOL;
+			error_log($error, 3, '../logs/unregistered_seasonings.log');
 		}
 	}
 
@@ -153,6 +158,8 @@ if (preg_match($reg_exp1, $message['text'])) {
 			}
 			$rep .= 'です!';
 			$reply['messages'][0]['text'] = $rep;
+			$word = $message['text'];
+			require_once('search_history_recording.php');
 
 		// DB検索に引っかからなかった場合
 		} else {
@@ -160,6 +167,9 @@ if (preg_match($reg_exp1, $message['text'])) {
 			$rep .= 'お探しの調味料は' . PHP_EOL;
 			$rep .= 'データベースに登録されておりません';
 			$reply['messages'][0]['text'] = $rep;
+			date_default_timezone_set('Asia/Tokyo');
+			$error = date('Y-m-d H:i:s ') . 'DBにない調味料が検索されました: "' . $str . '"' . PHP_EOL;
+			error_log($error, 3, '../logs/unregistered_seasonings.log');
 		}
 	}
 
