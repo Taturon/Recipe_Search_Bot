@@ -3,7 +3,7 @@
 require_once('db_connect.php');
 
 $line_id = $event['source']['userId'];
-$sql = 'SELECT `category_name` from `histories` WHERE `line_id` = ? ORDER BY `id` DESC LIMIT 10';
+$sql = 'SELECT `word` from `histories` WHERE `line_id` = ? ORDER BY `id` DESC LIMIT 10';
 $stmt = $dbh->prepare($sql);
 $stmt->execute([$line_id]);
 $histories = $stmt->fetchAll();
@@ -15,8 +15,8 @@ if (count($histories) > 0) {
 			'type' => 'action',
 			'action' => [
 				'type' => 'message',
-				'label' => $history['category_name'],
-				'text' => $history['category_name']
+				'label' => $history['word'],
+				'text' => $history['word']
 			]
 		];
 	}
