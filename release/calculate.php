@@ -89,6 +89,8 @@ if (preg_match($reg_exp1, $message['text'])) {
 			}
 			$rep .= 'です!';
 			$reply['messages'][0]['text'] = $rep;
+			$word = $message['text'];
+			require_once('search_history_recording.php');
 
 		// DB検索に引っかからなかった場合
 		} else {
@@ -156,6 +158,8 @@ if (preg_match($reg_exp1, $message['text'])) {
 			}
 			$rep .= 'です!';
 			$reply['messages'][0]['text'] = $rep;
+			$word = $message['text'];
+			require_once('search_history_recording.php');
 
 		// DB検索に引っかからなかった場合
 		} else {
