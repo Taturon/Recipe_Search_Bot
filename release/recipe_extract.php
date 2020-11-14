@@ -48,6 +48,7 @@ if (count($ids) > 13) {
 
 //ヒット件数が1件の場合
 } elseif (count($ids) === 1) {
+	$word = $ids[0]['category_name'];
 	require_once('search_history_recording.php');
 	require_once('make_carousel.php');
 }
