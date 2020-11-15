@@ -1,12 +1,12 @@
 <?php
 
-$base_url = 'https://procir-study.site/kobayashi320/images';
+$base_url = 'https://taturon.com/recipe_search_bot/images/feelings';
 
 // イメージマップの設定
 $reply['messages'][0] = [
 	'type' => 'imagemap',
 	'baseUrl' => $base_url,
-	'altText' => '気分 de レシピのイメージマップ',
+	'altText' => '気分deレシピのイメージマップです',
 	'baseSize' => ['width' => 1040, 'height' => 1040],
 	'actions' => [
 		[
