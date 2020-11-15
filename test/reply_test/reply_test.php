@@ -28,7 +28,7 @@ $reply['messages'][] = [
 
 /*
 // イメージマップを返す
-$base_url = 'https://taturon.com/recipe_search_bot/images';
+$base_url = 'https://taturon.com/recipe_search_bot/images/test';
 
 $reply['messages'][0] = [
 	'type' => 'imagemap',
