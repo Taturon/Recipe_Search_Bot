@@ -3,7 +3,7 @@
 require_once('db_connect.php');
 
 $line_id = $event['source']['userId'];
-$sql = 'SELECT `word` from `histories` WHERE `line_id` = ? ORDER BY `id` DESC LIMIT 10';
+$sql = 'SELECT `word` from `histories` WHERE `line_id` = ? ORDER BY `created_at` DESC LIMIT 10';
 $stmt = $dbh->prepare($sql);
 $stmt->execute([$line_id]);
 $histories = $stmt->fetchAll();
