@@ -17,7 +17,7 @@ try {
 	$sql = 'CREATE TABLE `histories` (
 		`id` int(11) NOT NULL AUTO_INCREMENT,
 		`line_id` varchar(40) NOT NULL,
-		`category_name` varchar(255) NOT NULL,
+		`word` varchar(255) NOT NULL,
 		`created_at` timestamp NOT NULL,
 		PRIMARY KEY(id)
 	)';
