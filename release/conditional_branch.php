@@ -14,6 +14,9 @@ switch ($message['text']) {
 	case '風邪気味':
 		require_once('recipes_by_feeling.php');
 		break;
+	case 'お店検索':
+		require_once('restaurant_search/explanatory_text.php');
+		break;
 	case '単位換算':
 		require_once('calculate_text.php');
 		break;
