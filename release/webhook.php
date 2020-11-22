@@ -15,6 +15,11 @@ foreach ($client->parseEvents() as $event) {
 		case 'message':
 			$message = $event['message'];
 			switch ($message['type']) {
+				case 'location':
+					$reply['replyToken'] = $event['replyToken'];
+					require_once('restaurant_search/curl.php');
+					$client->replyMessage($reply);
+					break;
 				case 'text':
 					$reply['replyToken'] = $event['replyToken'];
 					$reply['messages'][] = ['type' => 'text', 'text' => $message['text']];
