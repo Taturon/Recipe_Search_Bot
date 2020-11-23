@@ -23,6 +23,9 @@ switch ($message['text']) {
 	case '検索履歴':
 		require_once('search_histories.php');
 		break;
+	case '半径設定':
+		require_once('set_radius/select_radius.php');
+		break;
 	default:
 		require_once('calculate.php');
 		break;
