@@ -1,11 +1,14 @@
 <?php
 
+// ユーザー設定の検索半径取得
+require('restaurant_search/radius_search.php');
+
 // 各パラメーターの設定
 $base_url = 'https://webservice.recruit.co.jp/hotpepper/gourmet/v1/';
 $api_key= HOT_PEPPER_API_KEY;
 $params['lat'] = $message['latitude'];
 $params['lng'] = $message['longitude'];
-$params['range'] = '5';
+$params['range'] = $radius;
 $params['order'] = '4';
 
 // 検索クエリURLの組み立て
