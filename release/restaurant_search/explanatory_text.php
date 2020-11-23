@@ -1,8 +1,8 @@
 <?php
 
 // ユーザーの設定値を取得
-require('restaurant_search/radius_search.php');
-$config = require_once('../config/radius.php');
+require('../restaurant_search/radius_search.php');
+$config = require_once('../../config/radius.php');
 $radius = $config[$radius];
 
 // 返信用メッセージの設定
