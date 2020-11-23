@@ -12,6 +12,11 @@ foreach ($client->parseEvents() as $event) {
 		case 'unfollow':
 			require_once('unfollow.php');
 			break;
+		case 'postback':
+			$reply['replyToken'] = $event['replyToken'];
+			require_once('set_radius/update_radius.php');
+			$client->replyMessage($reply);
+			break;
 		case 'message':
 			$message = $event['message'];
 			switch ($message['type']) {
