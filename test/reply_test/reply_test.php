@@ -7,6 +7,45 @@ $reply['messages'][0] = ['type' => 'text', 'text' => 'ホゲホゲ'];
  */
 
 /*
+// ボタンテンプレートを返す
+$reply['messages'][0] = [
+	'type' => 'template',
+	'altText' => 'ボタンテンプレート',
+	'template' => [
+		'type' => 'buttons',
+		'title' => 'ボタン',
+		'text' => '下記より選択して下さい',
+		'actions' => [
+			[
+				'type' => 'postback',
+				'label' => '1',
+				'data' => '1',
+				'displayText' => '1'
+			],
+			[
+				'type' => 'postback',
+				'label' => '2',
+				'data' => '2',
+				'displayText' => '2'
+			],
+			[
+				'type' => 'postback',
+				'label' => '3',
+				'data' => '3',
+				'displayText' => '3'
+			],
+			[
+				'type' => 'postback',
+				'label' => '4',
+				'data' => '4',
+				'displayText' => '4'
+			]
+		]
+	]
+];
+*/
+
+/*
 // 画像を返す
 $reply['messages'][0] = [
 	'type' => 'image',
