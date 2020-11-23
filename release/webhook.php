@@ -12,9 +12,19 @@ foreach ($client->parseEvents() as $event) {
 		case 'unfollow':
 			require_once('unfollow.php');
 			break;
+		case 'postback':
+			$reply['replyToken'] = $event['replyToken'];
+			require_once('set_radius/update_radius.php');
+			$client->replyMessage($reply);
+			break;
 		case 'message':
 			$message = $event['message'];
 			switch ($message['type']) {
+				case 'location':
+					$reply['replyToken'] = $event['replyToken'];
+					require_once('restaurant_search/curl.php');
+					$client->replyMessage($reply);
+					break;
 				case 'text':
 					$reply['replyToken'] = $event['replyToken'];
 					$reply['messages'][] = ['type' => 'text', 'text' => $message['text']];

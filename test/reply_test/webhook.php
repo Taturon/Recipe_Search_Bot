@@ -1,11 +1,9 @@
 <?php
 
 require_once('./line_bot_tiny.php');
+require_once('../../release/.env.php');
 
-$channel_access_token = '[FILTERED]';
-$channel_secret = '[FILTERED]';
-
-$client = new LINEBotTiny($channel_access_token, $channel_secret);
+$client = new LINEBotTiny(CHANNEL_ACCESS_TOKEN, CHANNEL_SECRET);
 foreach ($client->parseEvents() as $event) {
 	switch ($event['type']) {
 		case 'message':

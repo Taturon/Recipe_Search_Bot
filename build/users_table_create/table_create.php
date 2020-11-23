@@ -17,6 +17,7 @@ try {
 	$sql = 'CREATE TABLE `users` (
 		`id` int(11) NOT NULL AUTO_INCREMENT,
 		`line_id` varchar(40) UNIQUE NOT NULL,
+		`radius` char DEFAULT 3 NOT NULL,
 		`created_at` timestamp NOT NULL,
 		`updated_at` timestamp NOT NULL,
 		`deleted_at` timestamp NULL DEFAULT NULL,
