@@ -19,7 +19,7 @@ if ($rows === 0) {
 }
 
 // 返信用メッセージを設定
-$config_radius = require_once('../config/radius.php');
+$config_radius = require_once('../../config/radius.php');
 $set_radius = $config_radius[$radius];
 $rep = '検索半径を' . $set_radius . ' に変更しました!';
 $reply['messages'][0] = ['type' => 'text', 'text' => $rep];
