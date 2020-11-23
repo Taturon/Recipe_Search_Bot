@@ -2,7 +2,7 @@
 
 $reply['messages'][0] = [
 	'type' => 'template',
-	'altText' => '半径設定用のボタンテンプレート',
+	'altText' => '半径設定用のボタンテンプレートを表示中',
 	'template' => [
 		'type' => 'buttons',
 		'title' => 'お店検索の検索半径設定',
