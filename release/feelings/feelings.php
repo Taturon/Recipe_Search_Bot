@@ -6,7 +6,7 @@ $base_url = 'https://taturon.com/recipe_search_bot/images/feelings';
 $reply['messages'][0] = [
 	'type' => 'imagemap',
 	'baseUrl' => $base_url,
-	'altText' => '気分deレシピのイメージマップです',
+	'altText' => '気分deレシピのイメージマップを表示中',
 	'baseSize' => ['width' => 1040, 'height' => 1040],
 	'actions' => [
 		[

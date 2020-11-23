@@ -18,7 +18,6 @@ $stmt = $dbh->prepare($sql);
 $stmt->bindValue(1, $feeling_id, PDO::PARAM_STR);
 $stmt->execute();
 $ids = $stmt->fetchAll();
-
 if ($ids) {
-	require_once('make_carousel.php');
+	require_once('../common/make_carousel.php');
 }

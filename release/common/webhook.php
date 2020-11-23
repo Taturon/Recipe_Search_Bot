@@ -7,14 +7,24 @@ $client = new LINEBotTiny(CHANNEL_ACCESS_TOKEN, CHANNEL_SECRET);
 foreach ($client->parseEvents() as $event) {
 	switch ($event['type']) {
 		case 'follow':
-			require_once('follow.php');
+			require_once('../follow_and_unfollow/follow.php');
 			break;
 		case 'unfollow':
-			require_once('unfollow.php');
+			require_once('../follow_and_unfollow/unfollow.php');
+			break;
+		case 'postback':
+			$reply['replyToken'] = $event['replyToken'];
+			require_once('../set_radius/update_radius.php');
+			$client->replyMessage($reply);
 			break;
 		case 'message':
 			$message = $event['message'];
 			switch ($message['type']) {
+				case 'location':
+					$reply['replyToken'] = $event['replyToken'];
+					require_once('../restaurant_search/curl.php');
+					$client->replyMessage($reply);
+					break;
 				case 'text':
 					$reply['replyToken'] = $event['replyToken'];
 					$reply['messages'][] = ['type' => 'text', 'text' => $message['text']];

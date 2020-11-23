@@ -3,7 +3,7 @@
 require_once('/var/www/html/recipe_search_bot/release/db_connect.php');
 
 try {
-	$retention_period = require_once('/var/www/html/recipe_search_bot/release/config.php');
+	$retention_period = require_once('/var/www/html/recipe_search_bot/config/retention_period.php');
 	$retention_limit = date('Y-m-d H:i:s', strtotime('-' . $retention_period['retention_period'] . ' day'));
 	$sql = 'DELETE FROM `histories` WHERE `created_at` < ?';
 	$stmt = $dbh->prepare($sql);

@@ -65,4 +65,4 @@ foreach ($recipes as $recipe) {
 
 // テンプレートオブジェクト及びカルーセルテンプレートの生成
 $template = ['type' => 'carousel', 'columns' => $columns];
-$reply['messages'][0] = ['type' => 'template', 'altText' => 'すみません...', 'template' => $template];
+$reply['messages'][0] = ['type' => 'template', 'altText' => 'レシピ検索結果を表示中', 'template' => $template];
