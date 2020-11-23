@@ -90,7 +90,7 @@ if (preg_match($reg_exp1, $message['text'])) {
 			$rep .= 'です!';
 			$reply['messages'][0]['text'] = $rep;
 			$word = $message['text'];
-			require_once('search_history_recording.php');
+			require_once('../histories/search_history_recording.php');
 
 		// DB検索に引っかからなかった場合
 		} else {
@@ -101,7 +101,7 @@ if (preg_match($reg_exp1, $message['text'])) {
 			$reply['messages'][0]['text'] = $rep;
 			date_default_timezone_set('Asia/Tokyo');
 			$error = date('Y-m-d H:i:s ') . 'DBにない調味料が検索されました: "' . $str . '"' . PHP_EOL;
-			error_log($error, 3, '../logs/unregistered_seasonings.log');
+			error_log($error, 3, '../../logs/unregistered_seasonings.log');
 		}
 	}
 
@@ -159,7 +159,7 @@ if (preg_match($reg_exp1, $message['text'])) {
 			$rep .= 'です!';
 			$reply['messages'][0]['text'] = $rep;
 			$word = $message['text'];
-			require_once('search_history_recording.php');
+			require_once('../histories/search_history_recording.php');
 
 		// DB検索に引っかからなかった場合
 		} else {
@@ -169,11 +169,11 @@ if (preg_match($reg_exp1, $message['text'])) {
 			$reply['messages'][0]['text'] = $rep;
 			date_default_timezone_set('Asia/Tokyo');
 			$error = date('Y-m-d H:i:s ') . 'DBにない調味料が検索されました: "' . $str . '"' . PHP_EOL;
-			error_log($error, 3, '../logs/unregistered_seasonings.log');
+			error_log($error, 3, '../../logs/unregistered_seasonings.log');
 		}
 	}
 
 // 単位換算ではなかった場合
 } else {
-	require_once('recipe_extract.php');
+	require_once('../recipe_search/recipe_extract.php');
 }
