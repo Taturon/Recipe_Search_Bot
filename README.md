@@ -1,4 +1,4 @@
-# レシピ検索ボットくん v3.0
+# レシピ検索ボットくん v3.1
 ![トップ画像](images/line_de_recipe.png)
 
 [友達追加はコチラ](https://line.me/R/ti/p/@774hxoph)
